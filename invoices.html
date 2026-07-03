@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="invoices">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">IMS System</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="clients.html">Clients</a></li>
+                <li class="nav-item"><a class="nav-link" href="estimates.html">Estimates</a></li>
+                <li class="nav-item"><a class="nav-link active" href="invoices.html">Invoices</a></li>
+                <li class="nav-item"><a class="nav-link" href="payments.html">Payments</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">Invoice Management</h2>
+
+    <!-- Invoice Form -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header bg-primary text-white">
+            Generate Invoice
+        </div>
+
+        <div class="card-body">
+
+            <form id="invoiceForm">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Invoice No</label>
+                        <input id="invoiceNo" type="text" class="form-control" value="" readonly>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Invoice Date</label>
+                        <input id="invoiceDate" type="date" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Estimate No</label>
+                        <select id="invoiceEstimate" class="form-select"></select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Client Name</label>
+                        <input id="invoiceClient" type="text" class="form-control" placeholder="Auto Filled" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Amount (₹)</label>
+                        <input id="invoiceAmount" type="number" class="form-control" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">GST (%)</label>
+                        <input id="invoiceGst" type="text" class="form-control" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Total (₹)</label>
+                        <input id="invoiceTotal" type="number" class="form-control" readonly>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Status</label>
+                        <select id="invoiceStatus" class="form-select">
+                            <option value="Pending">Pending</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success">Generate Invoice</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Invoice List -->
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+            Invoice List
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover text-center">
+
+                <thead class="table-light">
+
+                <tr>
+                    <th>Invoice No</th>
+                    <th>Estimate No</th>
+                    <th>Client</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                </thead>
+
+                <tbody id="invoiceTableBody">
+
+                <tr>
+                    <td>INV001</td>
+                    <td>EST001</td>
+                    <td>ABC Pvt Ltd</td>
+                    <td>₹11,800</td>
+                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                    <td>
+                        <button class="btn btn-info btn-sm">View</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>INV002</td>
+                    <td>EST002</td>
+                    <td>XYZ Traders</td>
+                    <td>₹9,440</td>
+                    <td><span class="badge bg-success">Paid</span></td>
+                    <td>
+                        <button class="btn btn-info btn-sm">View</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
